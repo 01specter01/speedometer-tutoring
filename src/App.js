@@ -16,28 +16,38 @@ const reducer = (state, action) => {
                     speed: 0,
                 };
             }
-            return (state = {
+            state = {
                 ...state,
                 isSwitchedOn: !state.isSwitchedOn,
-            });
+            };
+            break;
         case "accelerate":
-            return (state = {
+            state = {
                 ...state,
                 speed: state.speed + 5,
-            });
+            };
+            break;
         case "break":
-            return (state = {
-                ...state,
-                speed: state.speed - 5,
-            });
+            if (state.speed > 5) {
+                return (state = {
+                    ...state,
+                    speed: state.speed - 5,
+                });
+            } else {
+                return alert("Du kannst nicht unter null Km/h fahren");
+            }
+
         case "machtNull":
-            return (state = {
+            state = {
                 ...state,
                 speed: 0,
-            });
+            };
+            break;
 
         default:
+            console.warn("unknown action");
     }
+    return state;
 };
 
 function App() {
