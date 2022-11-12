@@ -14,6 +14,11 @@ const reducer = (state, action) => {
                 ...state,
                 isSwitchedOn: !state.isSwitchedOn,
             });
+        case "accelerate":
+            return (state = {
+                ...state,
+                speed: state.speed + 5,
+            });
         default:
     }
 };
