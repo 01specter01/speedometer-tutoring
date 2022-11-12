@@ -10,6 +10,12 @@ const initState = {
 const reducer = (state, action) => {
     switch (action.type) {
         case "switchOn/Off":
+            if (state.isSwitchedOn === false) {
+                state = {
+                    ...state,
+                    speed: 0,
+                };
+            }
             return (state = {
                 ...state,
                 isSwitchedOn: !state.isSwitchedOn,
@@ -19,6 +25,17 @@ const reducer = (state, action) => {
                 ...state,
                 speed: state.speed + 5,
             });
+        case "break":
+            return (state = {
+                ...state,
+                speed: state.speed - 5,
+            });
+        case "machtNull":
+            return (state = {
+                ...state,
+                speed: 0,
+            });
+
         default:
     }
 };

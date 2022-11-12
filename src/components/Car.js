@@ -17,7 +17,10 @@ export default function Car({ state, dispatch }) {
             <Button onClick={() => dispatch({ type: "accelerate" })}>
                 Gas geben
             </Button>
-            <Button>Bremsen</Button>
+            <Button onClick={() => dispatch({ type: "break" })}>Bremsen</Button>
+            <Button onClick={() => dispatch({ type: "machtNull" })}>
+                Speed 0
+            </Button>
         </div>
     );
 }
