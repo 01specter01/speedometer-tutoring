@@ -3,23 +3,29 @@ import Car from "./components/Car";
 import { useReducer } from "react";
 
 const initState = {
-  isSwitchedOn: false,
-  speed: 0,
+    isSwitchedOn: false,
+    speed: 0,
 };
 
 const reducer = (state, action) => {
-  swit;
-  return state;
+    switch (action.type) {
+        case "switchOn/Off":
+            return (state = {
+                ...state,
+                isSwitchedOn: !state.isSwitchedOn,
+            });
+        default:
+    }
 };
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initState);
+    const [state, dispatch] = useReducer(reducer, initState);
 
-  return (
-    <div className="App">
-      <Car state={state} dispatch={dispatch} />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Car state={state} dispatch={dispatch} />
+        </div>
+    );
 }
 
 export default App;
